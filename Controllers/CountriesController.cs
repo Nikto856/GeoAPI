@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeoAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class CountriesController : ControllerBase
     {
