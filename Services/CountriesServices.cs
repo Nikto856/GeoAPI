@@ -28,16 +28,15 @@ namespace GeoAPI.Services
             return null;
         }
 
-
-        public async Task<Country> GetCountry(string countryCode)
+        public async Task<List<Country>> GetAllCountries()
         {
-            var apiUrl = $"https://restcountries.com/v3.1/alpha/{countryCode}";
+            var apiUrl = "https://restcountries.com/v3.1/all";
             var response = await _httpClient.GetAsync(apiUrl);
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
-                var country = JsonConvert.DeserializeObject<Country>(responseContent);
-                return country;
+                var countries = JsonConvert.DeserializeObject<List<Country>>(responseContent);
+                return countries;
             }
             return null;
         }

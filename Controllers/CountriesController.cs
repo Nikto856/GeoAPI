@@ -17,10 +17,23 @@ namespace GeoAPI.Controllers
             _countriesService = countriesService;
         }
 
+        // Get {resource}?q={query}
         [HttpGet("{resource}")]
         public async Task<IActionResult> Search(string resource, [FromQuery] string q)
         {
             var results = await _countriesService.SearchCountries(resource, q);
+            if (results == null || results.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(results);
+        }
+
+        // Get all
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllCountries()
+        {
+            var results = await _countriesService.GetAllCountries();
             if (results == null || results.Count == 0)
             {
                 return NotFound();
