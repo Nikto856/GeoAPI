@@ -23,6 +23,15 @@ namespace GeoAPI
             services.AddScoped<CountriesService>();
             services.AddControllers();
 
+            // CORS policy
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin();
+                });
+            });
+
             // Swagger configuration
             services.AddSwaggerGen(c =>
             {
@@ -32,6 +41,7 @@ namespace GeoAPI
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
