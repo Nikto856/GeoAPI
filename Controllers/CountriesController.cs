@@ -11,13 +11,15 @@ namespace GeoAPI.Controllers
     public class CountriesController : ControllerBase
     {
         private readonly CountriesService _countriesService;
+        private readonly FavoritesService _favoritesService;
 
-        public CountriesController(CountriesService countriesService)
+        public CountriesController(CountriesService countriesService, FavoritesService favoritesService)
         {
             _countriesService = countriesService;
+            _favoritesService = favoritesService;
         }
 
-        // Get {resource}?q={query}
+        // GET {resource}?q={query}
         [HttpGet("{resource}")]
         public async Task<IActionResult> Search(string resource, [FromQuery] string q)
         {
@@ -29,7 +31,7 @@ namespace GeoAPI.Controllers
             return Ok(results);
         }
 
-        // Get all
+        // GET all
         [HttpGet("all")]
         public async Task<IActionResult> GetAllCountries()
         {
@@ -41,29 +43,35 @@ namespace GeoAPI.Controllers
             return Ok(results);
         }
 
+        // POST favorites
         [HttpPost("favorites")]
         public IActionResult AddFavorite([FromBody] Country country)
         {
-            // Implement logic to add the country to the user's favorites list
-            // Store the favorite in the chosen database
-
-            return Ok();
+            var favorite = _favoritesService.AddFavorite(country);
+            if (favorite == null)
+            {
+                return BadRequest("Failed to add favorite.");
+            }
+            return Ok(favorite);
         }
 
+        // GET favorites
         [HttpGet("favorites")]
         public IActionResult GetFavorites()
         {
-            // Implement logic to retrieve the user's favorites list from the database
-
-            return Ok();
+            var favorites = _favoritesService.GetFavorites();
+            return Ok(favorites);
         }
 
+        // DELETE favorites/{id}
         [HttpDelete("favorites/{id}")]
-        public IActionResult RemoveFavorite(string id)
+        public IActionResult RemoveFavorite(int id)
         {
-            // Implement logic to remove the specified favorite from the user's favorites list
-            // Remove the favorite from the database based on the provided id
-
+            var removed = _favoritesService.RemoveFavorite(id);
+            if (!removed)
+            {
+                return NotFound();
+            }
             return Ok();
         }
     }

@@ -5,6 +5,17 @@ E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\GeoAPI.deps.json
 E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\GeoAPI.runtimeconfig.json
 E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\GeoAPI.dll
 E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\GeoAPI.pdb
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
 E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 E:\Programming\source\repos\GeoAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
