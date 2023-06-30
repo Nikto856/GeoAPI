@@ -20,7 +20,7 @@ namespace GeoAPI.Services
         public Favorite AddFavorite(Country country)
         {
             using var context = new ApiContext(_dbContextOptions);
-            var favorite = new Favorite { Country = country };
+            var favorite = new Favorite { CountryData = country };
 
             context.Favorites.Add(favorite);
             context.SaveChanges();
@@ -29,11 +29,14 @@ namespace GeoAPI.Services
         }
 
         // GET
-        public List<Favorite> GetFavorites()
+        public List<Country> GetFavorites()
         {
             using var context = new ApiContext(_dbContextOptions);
-            return context.Favorites.Include(f => f.Country).ToList();
+            return context.Favorites
+                .Select(f => f.CountryData)
+                .ToList();
         }
+
 
         // DELETE
         public bool RemoveFavorite(int id)

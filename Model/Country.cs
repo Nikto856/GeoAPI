@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeoAPI.Models
 {
@@ -9,7 +9,7 @@ namespace GeoAPI.Models
         public CountryName Name { get; set; }
 
         [JsonProperty("capital")]
-        public List<string> Capital { get; set; }
+        public string Capital { get; set; }
 
         [JsonProperty("population")]
         public int Population { get; set; }
@@ -24,6 +24,14 @@ namespace GeoAPI.Models
     public class Favorite
     {
         public int Id { get; set; }
-        public Country Country { get; set; }
+        public string CountryJson { get; set; }
+
+        [NotMapped]
+        public Country CountryData
+        {
+            get => JsonConvert.DeserializeObject<Country>(CountryJson);
+            set => CountryJson = JsonConvert.SerializeObject(value);
+        }
     }
+
 }
