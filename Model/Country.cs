@@ -13,9 +13,6 @@ namespace GeoAPI.Models
 
         [JsonProperty("population")]
         public int Population { get; set; }
-
-        [JsonProperty("currencies")]
-        public Dictionary<string, Currency> Currencies { get; set; }
     }
 
     public class CountryName
@@ -24,12 +21,9 @@ namespace GeoAPI.Models
         public string Common { get; set; }
     }
 
-    public class Currency
+    public class Favorite
     {
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("symbol")]
-        public string Symbol { get; set; }
+        public int Id { get; set; }
+        public Country Country { get; set; }
     }
 }
