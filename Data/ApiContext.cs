@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using GeoAPI.Models;
+using Newtonsoft.Json;
 
 namespace GeoAPI.Data
 {
@@ -9,6 +10,12 @@ namespace GeoAPI.Data
         public ApiContext(DbContextOptions<ApiContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Ignore<Country>();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
