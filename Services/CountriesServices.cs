@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 
 namespace GeoAPI.Services
 {
+    // Handling requests to REST Countries public API
     public class CountriesService
     {
         private readonly HttpClient _httpClient;
@@ -15,6 +16,7 @@ namespace GeoAPI.Services
             _httpClient = httpClient;
         }
 
+        // Used by the GET /api/{resource}?q={query} endpoint
         public async Task<List<Country>> SearchCountries(string resource, string query)
         {
             var apiUrl = $"https://restcountries.com/v3.1/{resource}/{query}";
@@ -28,6 +30,7 @@ namespace GeoAPI.Services
             return null;
         }
 
+        // Used by the GET all endpoint
         public async Task<List<Country>> GetAllCountries()
         {
             var apiUrl = "https://restcountries.com/v3.1/all";
