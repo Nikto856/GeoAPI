@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace GeoAPI.Models
 {
@@ -9,7 +11,7 @@ namespace GeoAPI.Models
         public CountryName Name { get; set; }
 
         [JsonProperty("capital")]
-        public string Capital { get; set; }
+        public List<string> Capital { get; set; }
 
         [JsonProperty("population")]
         public int Population { get; set; }
