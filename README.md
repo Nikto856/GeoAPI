@@ -1,6 +1,7 @@
 # GeoAPI
 
 Has the following endpoints:
+
 GET /api/{rexource}?q={query}
 Searches REST Countries for countries matching the query and returns a list of countries.
 
