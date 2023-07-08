@@ -6,6 +6,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GeoAPI.Models
 {
+    // Country class containing selected attributes to be mapped from JSON.
+    // Contains a unique ID, that is the converted integer from the CCN3 country code.
     public class Country
     {
         public int Id { get; set; }
@@ -39,6 +41,8 @@ namespace GeoAPI.Models
         public string Common { get; set; }
     }
 
+    // Favorite class to be used to store favorite countries in DB.
+    // Serializes the country object into a JSON, to be easily stored instead of the complex object itself.
     public class Favorite
     {
         public int Id { get; set; }
